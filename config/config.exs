@@ -1,14 +1,10 @@
-# This file is responsible for configuring your application
-# and its dependencies with the aid of the Mix.Config module.
-#
-# This configuration file is loaded before any dependency and
-# is restricted to this project.
-
-# General application configuration
 use Mix.Config
 
 # Configures the endpoint
 config :download_manager, DownloadManagerWeb.Endpoint,
+  http: [
+    port: String.to_integer(System.get_env("PORT") || "4000")
+  ],
   url: [host: "localhost"],
   secret_key_base: "d5NAy0A6oIY/cpc+LF831rbXtezzg89x0Iz9C840AI2gTsrnJB1W+GBvZdDV1+Hb",
   render_errors: [view: DownloadManagerWeb.ErrorView, accepts: ~w(html json), layout: false],
